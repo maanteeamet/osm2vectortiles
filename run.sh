@@ -30,7 +30,8 @@ docker-compose run import-sql
 
 docker-compose run -e BBOX="21.3144,57.4818,28.335,60.0013" -e MIN_ZOOM="0" -e MAX_ZOOM="14" export
 
-docker volume rm $(docker volume ls)
+#docker volume rm $(docker volume ls)
+docker-compose down -v
 
 if [ ! -f $FILENAME ]; then
     (>&2 echo "File not found, exiting")
