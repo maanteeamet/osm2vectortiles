@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libgdal-dev \
     libproj-dev \
-    libjson0-dev \
+    libjson-c-dev \
     xsltproc \
     docbook-xsl \
     docbook-mathml \
@@ -22,23 +22,23 @@ RUN apt-get update && apt-get install -y \
     wget
 
 #latest osgeo
-RUN wget http://download.osgeo.org/geos/geos-3.5.0.tar.bz2; \
-    tar xfj geos-3.5.0.tar.bz2; \
-    cd geos-3.5.0; \
+RUN wget http://download.osgeo.org/geos/geos-3.7.1.tar.bz2; \
+    tar xfj geos-3.7.1.tar.bz2; \
+    cd geos-3.7.1; \
     ./configure; \
     make -j; \
     make install; \
     cd ..; \
-    rm -rf geos-3.5.0*
+    rm -rf geos-3.7.1*
 
-RUN wget http://download.osgeo.org/postgis/source/postgis-2.2.0.tar.gz; \
-    tar xvzf postgis-2.2.0.tar.gz; \
-    cd postgis-2.2.0; \
+RUN wget http://download.osgeo.org/postgis/source/postgis-2.5.1.tar.gz; \
+    tar xvzf postgis-2.5.1.tar.gz; \
+    cd postgis-2.5.1; \
     ./configure --with-raster --with-topology \
     make -j; \
     make install; \
     cd ..; \
-    rm -rf postgis-2.2.0*
+    rm -rf postgis-2.5.1*
 
 RUN ldconfig
 
